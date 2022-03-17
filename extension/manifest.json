@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "Youtube Scrobbler",
+  "description": "Scrobbler",
+  "version": "1.0",
+  "background": {
+    "scripts": ["constants.js", "background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["constants.js", "./youtube-playback/content-script.js"]
+    }
+  ],
+
+  "permissions": ["tabs", "https://www.youtube.com/watch*"],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Go to Dev.Opera!"
+  },
+
+  "externally_connectable": {
+    "matches": ["https://www.youtube.com/watch*"]
+  }
+}
